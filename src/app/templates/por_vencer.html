@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medicamentos por Vencer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container my-4">
+    <h2>Medicamentos que vencen en los próximos 60 días</h2>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if results %}
+      <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-bordered table-hover table-sm mb-0">
+          <thead class="table-light sticky-top">
+            <tr>
+              <th>Nombre del medicamento</th>
+              <th>Laboratorio</th>
+              <th>Lote</th>
+              <th>Factura</th>
+              <th>Proveedor</th>
+              <th>Fecha compra</th>
+              <th><span class="text-danger">Fecha vence</span></th>
+              <th>Cantidad comprada</th>
+              <th>Precio de venta directo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in results %}
+              <tr {% if row['Fecha vence'] and row['Fecha vence']|string <= (now|default('')) %}class="table-warning"{% endif %}>
+                <td>{{ row['Nombre del medicamento'] }}</td>
+                <td>{{ row['Laboratorio'] }}</td>
+                <td>{{ row['Lote'] }}</td>
+                <td>{{ row['Factura'] }}</td>
+                <td>{{ row['Proveedor'] }}</td>
+                <td>{{ row['Fecha compra'] }}</td>
+                <td class="text-danger fw-bold">{{ row['Fecha vence'] }}</td>
+                <td>{{ row['Cant comprada'] }}</td>
+                <td>{{ row['Precio de venta directo'] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="alert alert-info mt-4">No hay medicamentos próximos a vencer.</div>
+    {% endif %}
+
+    <a href="/miscelaneos" class="btn btn-secondary mt-3">Volver al menú Misceláneos</a>
+  </div>
+</body>
+</html>

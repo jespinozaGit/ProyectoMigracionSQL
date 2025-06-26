@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Tablas</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #dddddd; padding: 8px; }
+      th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Tablas</h1>
+    <h3>Tablas Disponibles:</h3>
+    <ul>
+      {% for name in table_names %}
+        <li>{{ name }}</li>
+      {% endfor %}
+    </ul>
+
+    {% if selected_table %}
+      <h3>Tabla Seleccionada: {{ selected_table }}</h3>
+      <h4>Columnas disponibles:</h4>
+      <ul>
+        {% for col in columns %}
+          <li>{{ col }}</li>
+        {% endfor %}
+      </ul>
+      <h4>Resultados:</h4>
+      {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+      {% endif %}
+      {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    {% for key in results[0].keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      {% else %}
+        <p>No se encontraron resultados.</p>
+      {% endif %}
+    {% endif %}
+
+    <p><a href="/miscelaneos">Volver a Misceláneos</a></p>
+</body>
+</html>

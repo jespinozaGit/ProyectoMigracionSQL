@@ -1,0 +1,112 @@
+Registro de sesiones - Proyecto MigracionSQL
+---------------------------------------------
+[2025-06-18 02:37:23] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 02:38:07] Hoja elegida: VentaRecargas | Filas: 75
+[2025-06-18 02:38:07] Tipos corregidos automáticamente
+[2025-06-18 02:38:14] Carga exitosa → tabla datos_excel
+[2025-06-18 02:40:51] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 02:41:00] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 02:41:00] Tipos corregidos automáticamente
+[2025-06-18 02:41:07] Carga exitosa → tabla datos_excel
+[2025-06-18 02:43:07] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 02:43:56] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 02:43:56] Tipos corregidos automáticamente
+[2025-06-18 02:44:03] Carga exitosa → tabla datos_excel
+[2025-06-18 03:06:55] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 03:07:05] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 03:07:05] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 03:07:05] Se eliminaron columnas vacías posteriores a '__FIN__'
+[2025-06-18 03:07:05] Tipos corregidos automáticamente
+[2025-06-18 03:07:10] Carga exitosa → tabla datos_excel
+[2025-06-18 03:16:00] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 03:16:33] Hoja elegida: Ventas | Filas: 40860
+[2025-06-18 03:16:33] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 03:16:33] Tipos corregidos automáticamente
+[2025-06-18 03:17:15] Carga exitosa → tabla datos_excel
+[2025-06-18 03:30:36] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 03:31:10] Hoja elegida: Ventas | Filas: 40860
+[2025-06-18 03:31:10] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 03:31:10] Tipos corregidos automáticamente
+[2025-06-18 03:31:54] Carga exitosa → tabla datos_excel
+[2025-06-18 03:32:43] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 03:33:03] Hoja elegida: Ventas | Filas: 40860
+[2025-06-18 03:33:03] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 03:33:03] Tipos corregidos automáticamente
+[2025-06-18 03:33:43] Carga exitosa → tabla datos_excel
+[2025-06-18 05:21:49] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:22:29] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 05:22:29] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:22:29] Tipos corregidos automáticamente
+[2025-06-18 05:22:31] ERROR al cargar en SQL: A column with name 'Cant min a vender' is already present in table 'datos_excel'.
+[2025-06-18 05:23:08] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:23:14] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 05:23:14] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:23:14] Tipos corregidos automáticamente
+[2025-06-18 05:23:16] ERROR al cargar en SQL: A column with name 'Cant min a vender' is already present in table 'datos_excel'.
+[2025-06-18 05:24:14] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:24:19] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 05:24:19] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:24:19] Tipos corregidos automáticamente
+[2025-06-18 05:24:29] ERROR al cargar en SQL: A column with name 'Cant min a vender' is already present in table 'datos_excel'.
+[2025-06-18 05:25:41] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:26:12] Hoja elegida: Ventas | Filas: 40860
+[2025-06-18 05:26:12] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:26:12] Tipos corregidos automáticamente
+[2025-06-18 05:26:55] Carga exitosa → tabla datos_excel
+[2025-06-18 05:27:46] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:27:50] Hoja elegida: Inventario | Filas: 2113
+[2025-06-18 05:27:50] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:27:50] Tipos corregidos automáticamente
+[2025-06-18 05:28:04] ERROR al cargar en SQL: A column with name 'Cant min a vender' is already present in table 'datos_excel'.
+[2025-06-18 05:31:36] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:31:49] Hoja Inventario: delimitación obtenida de Metadatos
+[2025-06-18 05:31:49] Hoja elegida: Inventario | Filas leídas: 2113
+[2025-06-18 05:31:49] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:31:49] Tipos corregidos automáticamente
+[2025-06-18 05:32:00] Carga exitosa → tabla datos_excel
+[2025-06-18 05:32:40] carga_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:33:09] Hoja VentaRecargas: delimitación obtenida de Metadatos
+[2025-06-18 05:33:09] Hoja elegida: VentaRecargas | Filas leídas: 55
+[2025-06-18 05:33:09] Encabezados limpiados (saltos de línea removidos)
+[2025-06-18 05:33:09] Tipos corregidos automáticamente
+[2025-06-18 05:33:16] Carga exitosa → tabla datos_excel
+[2025-06-18 05:40:28] cargar_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:40:29] Se encontraron 4 registros en Metadatos
+[2025-06-18 05:40:29] Metadato #1 – Hoja: Inventario, Tabla: tInventario
+[2025-06-18 05:40:29] tInventario – Datos extraídos: 2113 filas x 29 columnas
+[2025-06-18 05:40:29] tInventario – Tipos corregidos automáticamente
+[2025-06-18 05:40:34] Carga exitosa → tabla tInventario
+[2025-06-18 05:40:34] Metadato #2 – Hoja: Ventas, Tabla: tVentas
+[2025-06-18 05:40:39] tVentas – Datos extraídos: 40853 filas x 21 columnas
+[2025-06-18 05:40:39] tVentas – Tipos corregidos automáticamente
+[2025-06-18 05:41:15] Carga exitosa → tabla tVentas
+[2025-06-18 05:41:15] Metadato #3 – Hoja: VentaRecargas, Tabla: tClaro
+[2025-06-18 05:41:15] tClaro – Datos extraídos: 55 filas x 9 columnas
+[2025-06-18 05:41:15] tClaro – Tipos corregidos automáticamente
+[2025-06-18 05:41:15] Carga exitosa → tabla tClaro
+[2025-06-18 05:41:15] Metadato #4 – Hoja: VentaRecargas, Tabla: tTigo
+[2025-06-18 05:41:15] tTigo – Datos extraídos: 61 filas x 9 columnas
+[2025-06-18 05:41:15] tTigo – Tipos corregidos automáticamente
+[2025-06-18 05:41:15] Carga exitosa → tabla tTigo
+[2025-06-18 05:45:23] cargar_sql.py – Archivo: c:\Users\JC\Desktop\ProyectoMigracionSQL\data\copias_pc_farmacia\tu_archivo.xlsm
+[2025-06-18 05:45:24] Se encontraron 5 registros en Metadatos
+[2025-06-18 05:45:24] Metadato #1 – Hoja: Inventario, Tabla: tInventario
+[2025-06-18 05:45:24] tInventario – Datos extraídos: 2113 filas x 29 columnas
+[2025-06-18 05:45:24] tInventario – Tipos corregidos automáticamente
+[2025-06-18 05:45:32] Carga exitosa → tabla tInventario
+[2025-06-18 05:45:32] Metadato #2 – Hoja: Ventas, Tabla: tVentas
+[2025-06-18 05:45:39] tVentas – Datos extraídos: 40853 filas x 21 columnas
+[2025-06-18 05:45:39] tVentas – Tipos corregidos automáticamente
+[2025-06-18 05:46:22] Carga exitosa → tabla tVentas
+[2025-06-18 05:46:22] Metadato #3 – Hoja: VentaRecargas, Tabla: tClaro
+[2025-06-18 05:46:22] tClaro – Datos extraídos: 55 filas x 9 columnas
+[2025-06-18 05:46:22] tClaro – Tipos corregidos automáticamente
+[2025-06-18 05:46:22] Carga exitosa → tabla tClaro
+[2025-06-18 05:46:22] Metadato #4 – Hoja: VentaRecargas, Tabla: tTigo
+[2025-06-18 05:46:22] tTigo – Datos extraídos: 61 filas x 9 columnas
+[2025-06-18 05:46:22] tTigo – Tipos corregidos automáticamente
+[2025-06-18 05:46:22] Carga exitosa → tabla tTigo
+[2025-06-18 05:46:22] Metadato #5 – Hoja: Farmacia, Tabla: tCompras
+[2025-06-18 05:46:25] tCompras – Datos extraídos: 13046 filas x 39 columnas
+[2025-06-18 05:46:25] tCompras – Tipos corregidos automáticamente
+[2025-06-18 05:46:46] Carga exitosa → tabla tCompras

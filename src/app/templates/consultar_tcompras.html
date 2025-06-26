@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de tCompras</title>
+  <!-- Bootstrap CSS para estilo profesional -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container my-4">
+    <h1 class="mb-4">Consulta de tCompras</h1>
+    
+    <!-- Formulario de búsqueda -->
+    <div class="card mb-4">
+      <div class="card-header">
+        Búsqueda Avanzada: Nombre del Medicamento y/o Laboratorio
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="mb-3">
+            <label for="nombre_medicamento" class="form-label">Nombre del Medicamento</label>
+            <input type="text" class="form-control" id="nombre_medicamento" name="nombre_medicamento" value="{{ nombre_medicamento }}" placeholder="Ej: acetaminofe*">
+          </div>
+          <div class="mb-3">
+            <label for="laboratorio" class="form-label">Laboratorio</label>
+            <input type="text" class="form-control" id="laboratorio" name="laboratorio" value="{{ laboratorio }}" placeholder="Ej: Caplin">
+          </div>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Mostrar error si existe -->
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    
+    <!-- Mostrar resultados en una tabla si existen -->
+    {% if results %}
+      <div class="card">
+        <div class="card-header">
+          Resultados de la búsqueda
+        </div>
+        <div class="card-body">
+          <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+  <table class="table table-striped table-bordered table-sm align-middle mb-0">
+    <thead class="table-dark sticky-top">
+      <tr>
+        <th>Cod</th>
+        <th>Nombre del medicamento</th>
+        <th>Laboratorio</th>
+        <th>Presentacion</th>
+        <th>Cant min a vender</th>
+        <th>Presentacion venta</th>
+        <th>Cantidad comprada</th>
+        <th>Costo presentacion</th>
+        <th>30%</th>
+        <th>+30%</th>
+        <th>Precio de venta calculado</th>
+        <th>Precio de venta directo</th>
+        <th>% utilidad</th>
+        <th>Util und</th>
+        <th>Util tot</th>
+        <th>Und medida compra</th>
+        <th>Cant Unds</th>
+        <th>Costo und medida</th>
+        <th>Cant comprada</th>
+        <th>Costo compra</th>
+        <th>Factura</th>
+        <th>Proveedor</th>
+        <th>Fecha compra</th>
+        <th>Fecha vence</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in results %}
+      <tr>
+        <td>{{ row['Cod'] }}</td>
+        <td>{{ row['Nombre del medicamento'] }}</td>
+        <td>{{ row['Laboratorio'] }}</td>
+        <td>{{ row['Presentacion'] }}</td>
+        <td>{{ row['Cant min a vender'] }}</td>
+        <td>{{ row['Presentacion venta'] }}</td>
+        <td>{{ row['Cantidad comprada'] }}</td>
+        <td>{{ row['Costo presentacion'] }}</td>
+        <td>{{ row['30%'] }}</td>
+        <td>{{ row['+30%'] }}</td>
+        <td>{{ row['Precio de venta calculado'] }}</td>
+        <td>{{ row['Precio de venta directo'] }}</td>
+        <td>{{ row['% utilidad'] }}</td>
+        <td>{{ row['Util und'] }}</td>
+        <td>{{ row['Util tot'] }}</td>
+        <td>{{ row['Und medida compra'] }}</td>
+        <td>{{ row['Cant Unds'] }}</td>
+        <td>{{ row['Costo und medida'] }}</td>
+        <td>{{ row['Cant comprada'] }}</td>
+        <td>{{ row['Costo compra'] }}</td>
+        <td>{{ row['Factura'] }}</td>
+        <td>{{ row['Proveedor'] }}</td>
+        <td>{{ row['Fecha compra'] }}</td>
+        <td>{{ row['Fecha vence'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+        </div>
+      </div>
+    {% else %}
+      {% if nombre_medicamento or laboratorio %}
+        <div class="alert alert-info">No se encontraron resultados.</div>
+      {% endif %}
+    {% endif %}
+    
+    <a href="/miscelaneos" class="btn btn-secondary mt-3">Volver al Menú Misceláneos</a>
+  </div>
+  
+  <!-- Bootstrap Bundle con Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
