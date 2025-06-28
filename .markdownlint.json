@@ -1,8 +1,8 @@
 {
   "default": true,
   "rules": {
-    "MD013": { "line_length": 120 },
-    "MD031": false,
-    "MD012": false
+    "MD013": false,   // desactiva line-length
+    "MD031": false,   // no exige líneas en blanco alrededor de fences
+    "MD012": false    // permite múltiples líneas en blanco
   }
 }
