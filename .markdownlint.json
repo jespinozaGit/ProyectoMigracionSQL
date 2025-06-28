@@ -1,9 +1,7 @@
 {
   "default": true,
-  "rules": {
-    "MD013": false,
-    "MD031": false,
-    "MD012": false,
-    "MD040": false
-  }
+  "MD013": false,
+  "MD031": false,
+  "MD012": false,
+  "MD040": false
 }
