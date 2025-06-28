@@ -7,8 +7,10 @@ on:
 jobs:
   update-docs:
     runs-on: windows-latest
+
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repo
+      uses: actions/checkout@v3
       with:
         persist-credentials: true
 
@@ -17,14 +19,9 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-	node-version: '16'
-
     - name: Install changelog & TOC tools
       run: |
-	npm install -g conventional-changelog-cli markdown-toc
+        npm install -g conventional-changelog-cli markdown-toc
 
     - name: Generate CHANGELOG & TOC
       run: |
@@ -36,5 +33,5 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor }}@users.noreply.github.com"
         git add CHANGELOG.md README.md docs/guia_desarrollo.md
-        git commit -m "chore(docs): update changelog & TOC [skip ci]" || echo "No changes"
+        git commit -m "chore(docs): update changelog & TOC [skip ci]" || echo "No changes to commit"
         git push
