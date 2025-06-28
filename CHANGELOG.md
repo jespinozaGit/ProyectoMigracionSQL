@@ -1,3 +1,7 @@
+# [](https://github.com/jespinozaGit/ProyectoMigracionSQL/compare/v0.1.0...v) (2025-06-28)
+
+
+
 # Historial de Cambios
 
 ## [Unreleased]
