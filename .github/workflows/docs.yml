@@ -1,11 +1,12 @@
 name: docs
 
-# Esto otorga al GITHUB_TOKEN permiso para escribir en el repositorio
 permissions:
   contents: write
 
 on:
   push:
+    branches: [ main ]
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -16,7 +17,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
-        # Asegura que use el GITHUB_TOKEN para push
         token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true
 
@@ -25,9 +25,12 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install changelog & TOC tools
+    - name: Install CLI tools
       run: |
-        npm install -g conventional-changelog-cli markdown-toc
+        npm install -g markdownlint-cli conventional-changelog-cli markdown-toc
+
+    - name: Lint Markdown
+      run: markdownlint "**/*.md"
 
     - name: Generate CHANGELOG & TOC
       shell: cmd
