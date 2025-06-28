@@ -1,0 +1,33 @@
+Al final dió error:
+8 workflow runs
+ci(docs): permite hasta 120 chars (MD013) y actualiza workflow docs
+docs #8: Commit 6a10b1a pushed by jespinozaGit
+
+
+¡Listo, Juan! Tu commit quedó perfecto. Ahora:
+
+1. Empuja tus cambios al remoto:  
+   ```powershell
+   git push origin main
+   ```
+
+2. Verifica el pipeline:  
+   - Ve a **Actions → docs** en GitHub.  
+   - Asegúrate de que el run por tu último push salga en verde y sin errores de MD013.
+
+3. Genera el milestone **v0.3.0** y sus issues:  
+   - En GitHub, ve a la pestaña **Issues → Milestones → New milestone**.  
+   - Nómbralo “v0.3.0”, añade la descripción y fecha objetivo.  
+   - Crea issues individuales para cada punto de la checklist:
+     • Documentar endpoints REST del backend  
+     • Añadir validación de variables de entorno  
+     • Configurar `markdownlint` en CI  
+     • Escribir pruebas unitarias básicas  
+     • Definir esquema de despliegue (Heroku / Streamlit Cloud)  
+   - Asigna cada issue al milestone y, si es necesario, a ti o a colaboradores.
+
+4. (Opcional) Configurar notificaciones:  
+   - Integra Slack o Telegram usando un Action como `8398a7/action-slack`.  
+   - De esa forma recibirás alertas cuando la docs CI pase o falle.
+
+Con esto tu flujo de documentación quedará auditado y listo para colaboraciones. Avísame cuándo completes el milestone para darle seguimiento o si quieres armar las notificaciones. 🚀

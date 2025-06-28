@@ -1,0 +1,26 @@
+¡Perfecto, Juan! 🎉 Tu workflow ya está actualizado con el trigger de `pull_request` y la validación de Markdown. Ahora solo queda confirmar que todo funciona:
+
+1. Verifica la ejecución en **Actions**  
+   - Ve a la pestaña **Actions → docs** en tu repo.  
+   - Deberías ver un run disparado por tu último push.  
+   - Abre el log y observa estos pasos clave:
+     1. “Install CLI tools”  
+     2. “Lint Markdown” → ahí debería terminar sin errores  
+     3. “Generate CHANGELOG & TOC”  
+     4. “Commit & push updates”  
+   - Asegúrate de que todo termine con ✅.
+
+2. Prueba un **pull request**  
+   - Crea una rama nueva (por ejemplo `test/ci-docs`), haz un cambio menor en un `.md` (añade un espacio o corrige un typo) y abre un PR hacia `main`.  
+   - Deberías ver que el workflow se dispara automáticamente sobre ese PR, valida tus `.md` y luego, si hay cambios de TOC o changelog, los sube a la rama del PR.
+
+3. Ajustes opcionales  
+   - Si `markdownlint` señala reglas que no quieres aplicar, crea un archivo `.markdownlint.json` en la raíz con tu configuración personalizada.  
+   - Añade más linters o validaciones (por ejemplo `remark-lint`) en el mismo paso de CI para reforzar la calidad.  
+   - Configura notificaciones (Slack, Teams o correo) usando un Action como [8398a7/action-slack](https://github.com/marketplace/actions/slack-notify) para avisar al equipo cuando el docs CI pase/falle.
+
+4. Siguiente hito:  
+   - Definir y crear issues en el milestone **v0.3.0** basados en la checklist.  
+   - Empezar a documentar endpoints REST y agregar pruebas unitarias.
+
+Dime si el run quedó verde y si quieres que te ayude a configurar notificaciones o afinar reglas de lint. ¡Vamos por ese flujo de documentación impecable! 🚀

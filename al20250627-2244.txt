@@ -1,0 +1,171 @@
+Sí, te entiendo perfectamente. Voy a entregarte a continuación la documentación completa y operativa que cubre:
+
+- Estructura y contexto del proyecto  
+- Estado actual y avances  
+- Pendientes inmediatos  
+- Flujo de trabajo paso a paso  
+- Cómo reconfigurar todo desde cero en una PC nueva  
+- Próximos pasos y automatización con GitHub Actions  
+
+Todo listo para que tú (o cualquier colaborador) puedan arrancar, avanzar y migrar sin perder ni un detalle.
+
+---
+
+# ProyectoMigracionSQL – Guía Integral
+
+## 1. Introducción  
+Este repositorio sirve para migrar y exponer datos SQL a través de un microservicio en Flask, con documentación automatizada y control de versiones.  
+
+Tecnologías clave:  
+- Python 3.x + Flask  
+- SQL (PostgreSQL, MySQL, SQL Server…)  
+- Git + GitHub (git-ecosystem, conventional-changelog)  
+- Windows Powershell / Batch scripts  
+- GitHub Actions  
+
+## 2. Estructura del Repositorio  
+```text
+ProyectoMigracionSQL/
+├── .github/
+│   └── workflows/
+│       └── docs.yml         # Workflow para generar changelog & TOC
+├── docs/
+│   └── guia_desarrollo.md   # Guía técnica + TOC automático
+├── src/
+│   └── app/
+│       ├── app.py           # App Flask principal
+│       └── templates/
+│           └── index.html
+├── setup.bat                # (Opcional) instala dependencias
+├── update_docs.bat          # Regenera CHANGELOG + TOC en MD  
+├── CHANGELOG.md             # Historial de cambios (convencional)  
+├── README.md                # Documentación principal + TOC  
+└── requirements.txt         # Paquetes Python
+```
+
+## 3. Estado Actual y Avances  
+- ➕ **CHANGELOG.md** restaurado y versionado con tag `v0.1.0`.  
+- 🔄 **update_docs.bat** configura:  
+  1. `conventional-changelog -p angular -s -i CHANGELOG.md`  
+  2. TOC automático en `README.md` y `docs/guia_desarrollo.md`.  
+- ✅ **Git** configurado con tu user.name y user.email (de tu cuenta `jespinozaGit`).  
+- 🔐 Autenticación GitHub vía Git Credential Manager ok.  
+
+## 4. Pendientes Inmediatos  
+1. Revisión y enriquecimiento de la **guía técnica** (`docs/guia_desarrollo.md`):  
+   - Diagrama de conexiones SQL  
+   - Variables de entorno  
+2. Validar el **workflow de GitHub Actions** (`.github/workflows/docs.yml`).  
+
+## 5. Flujo de Trabajo Diario  
+1. **Desarrollo**  
+   - `feat: …`, `fix: …`, `docs: …` (convencional)  
+2. **Commit**  
+   ```bash
+   git add .  
+   git commit -m "feat: agrega endpoint de clientes"
+   ```  
+3. **Generar docs localmente**  
+   ```bash
+   .\update_docs.bat
+   ```  
+4. **Push**  
+   ```bash
+   git push
+   ```  
+   (A partir de ahora, GitHub Actions actualizará `CHANGELOG.md` y TOC automáticamente.)
+
+## 6. Automatización – GitHub Actions  
+Crea el archivo `.github/workflows/docs.yml` con este contenido:
+
+```yaml
+name: docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  update-docs:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: true
+
+    - name: Setup Node (opcional para TOC CLI)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        npm install markdown-toc-cli -g
+
+    - name: Generate CHANGELOG
+      run: conventional-changelog -p angular -i CHANGELOG.md -s
+
+    - name: Update TOC in markdowns
+      run: |
+        update_docs.bat
+
+    - name: Commit & push docs
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git add CHANGELOG.md README.md docs/guia_desarrollo.md
+        git commit -m "chore(docs): update changelog & TOC [skip ci]" || echo "No changes to commit"
+        git push
+```
+
+> De esta forma, cada `push` a `main` regenerará tu changelog y TOC sin que toques nada localmente.
+
+## 7. Migración a PC Nueva
+
+Si mueves el proyecto a otro equipo, sigue estos pasos:
+
+1. Instala Git y, opcionalmente, VS Code + Git Credential Manager.  
+2. Clona tu repo:
+   ```bash
+   git clone https://github.com/jespinozaGit/ProyectoMigracionSQL.git
+   cd ProyectoMigracionSQL
+   ```
+3. Configura tu identidad:
+   ```bash
+   git config --global user.name "Juan Espinoza"
+   git config --global user.email "tu_correo@ejemplo.com"
+   ```
+4. Instala Python, Node y demás prerequisitos:
+   ```bash
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   npm install markdown-toc-cli -g
+   ```
+5. Ejecuta la setup (si aplica):
+   ```bash
+   .\setup.bat
+   ```
+6. Verifica que el workflow y `update_docs.bat` funcionen:
+   ```bash
+   .\update_docs.bat
+   git push
+   ```
+
+Y ya estás operativo en tu nueva máquina con todo el historial, changelog y tu pipeline de docs listo.
+
+## 8. Próximos Pasos  
+- Completar la **guía técnica** (datos, endpoints, despliegue).  
+- Documentar **despliegue en Streamlit Cloud** (si aplica).  
+- Añadir tests automatizados y pipeline de CI.  
+- Monitoreo y alerta de errores (Rollbar, Sentry).  
+
+---
+
+Con esto tienes todo el manual de operaciones: **desde el principio**, estado, cómo continuar, qué falta y hasta cómo reconfigurar en un equipo nuevo. Cualquier ajuste o detalle extra que necesites, ¡avísame!
