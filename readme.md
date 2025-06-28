@@ -296,3 +296,4 @@ Elige la opción que mejor encaje con tu estilo de docs:
 - ¿Prefieres separar responsabilidades? Crea `DEPLOY.md` o un documento dentro de `docs/`.
 
 Mañana podemos retomar en el punto que elijas y ajustar estilo, añadir diagramas de flujo o hasta automatizar generación de docs via GH Actions.
+
