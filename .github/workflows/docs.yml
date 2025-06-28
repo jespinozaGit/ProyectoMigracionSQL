@@ -1,5 +1,9 @@
 name: docs
 
+# Esto otorga al GITHUB_TOKEN permiso para escribir en el repositorio
+permissions:
+  contents: write
+
 on:
   push:
     branches: [ main ]
@@ -9,9 +13,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout code
       uses: actions/checkout@v3
       with:
+        # Asegura que use el GITHUB_TOKEN para push
+        token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true
 
     - name: Setup Node.js
