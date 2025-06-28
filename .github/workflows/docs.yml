@@ -24,9 +24,10 @@ jobs:
         npm install -g conventional-changelog-cli markdown-toc
 
     - name: Generate CHANGELOG & TOC
+      shell: cmd
       run: |
         conventional-changelog -p angular -i CHANGELOG.md -s
-        update_docs.bat
+        call update_docs.bat
 
     - name: Commit & push updates
       run: |
