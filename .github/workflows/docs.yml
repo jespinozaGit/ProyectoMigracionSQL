@@ -17,9 +17,14 @@ jobs:
       with:
         node-version: '16'
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+	node-version: '16'
+
     - name: Install changelog & TOC tools
       run: |
-        npm install -g conventional-changelog-cli markdown-toc-cli
+	npm install -g conventional-changelog-cli markdown-toc
 
     - name: Generate CHANGELOG & TOC
       run: |
