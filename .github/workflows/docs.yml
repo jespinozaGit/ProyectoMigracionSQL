@@ -1,3 +1,4 @@
+# .github/workflows/docs.yml
 name: docs
 
 permissions:
@@ -5,43 +6,47 @@ permissions:
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   update-docs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        persist-credentials: true
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-    - name: Install CLI tools
-      run: |
-        npm install -g markdownlint-cli conventional-changelog-cli markdown-toc
+      - name: Install CLI tools
+        run: |
+          npm install -g markdownlint-cli \
+                        conventional-changelog-cli \
+                        markdown-toc
 
-    - name: Lint Markdown
-      run: markdownlint "**/*.md"
+      - name: Lint Markdown
+        run: markdownlint "**/*.md" --config .markdownlint.json
 
-    - name: Generate CHANGELOG & TOC
-      shell: cmd
-      run: |
-        conventional-changelog -p angular -i CHANGELOG.md -s
-        call update_docs.bat
+      - name: Generate CHANGELOG & TOC
+        shell: cmd
+        run: |
+          conventional-changelog -p angular -i CHANGELOG.md -s
+          call update_docs.bat
 
-    - name: Commit & push updates
-      run: |
-        git config user.name "${{ github.actor }}"
-        git config user.email "${{ github.actor }}@users.noreply.github.com"
-        git add CHANGELOG.md README.md docs/guia_desarrollo.md
-        git commit -m "chore(docs): update changelog & TOC [skip ci]" || echo "No changes to commit"
-        git push
+      - name: Commit & push updates
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add CHANGELOG.md README.md docs/guia_desarrollo.md
+          git commit -m "chore(docs): update changelog & TOC [skip ci]" || echo "No changes to commit"
+          git push

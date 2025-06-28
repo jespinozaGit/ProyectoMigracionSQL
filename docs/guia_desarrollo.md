@@ -1,8 +1,3 @@
-Aquí tienes el contenido completo y final para el archivo **guia_desarrollo.md**:
-
----
-
-```markdown
 # Guía para Desarrolladores
 
 Esta guía describe en detalle la arquitectura, integración y aspectos técnicos del Sistema Integrado de Gestión y Visualización de Datos. Está destinada a los desarrolladores que mantendrán o extenderán el sistema.
@@ -11,14 +6,15 @@ Esta guía describe en detalle la arquitectura, integración y aspectos técnico
 
 ## Índice
 
-1. [Arquitectura del Sistema](#arquitectura-del-sistema)
-2. [Integración Excel-SQL](#integración-excel-sql)
-3. [Módulo Principal en Flask](#módulo-principal-en-flask)
-4. [Acceso Local al Sistema Web](#acceso-local-al-sistema-web)
-5. [Scripts Auxiliares](#scripts-auxiliares)
-6. [Buenas Prácticas y Siguientes Pasos](#buenas-prácticas-y-siguientes-pasos)
-7. [Extensiones Futuras](#extensiones-futuras)
-8. [Historial de Cambios](#historial-de-cambios)
+1. [Arquitectura del Sistema](#arquitectura-del-sistema)  
+2. [Integración Excel-SQL](#integración-excel-sql)  
+3. [Módulo Principal en Flask](#módulo-principal-en-flask)  
+4. [Acceso Local al Sistema Web](#acceso-local-al-sistema-web)  
+5. [Scripts Auxiliares](#scripts-auxiliares)  
+6. [Buenas Prácticas y Siguientes Pasos](#buenas-prácticas-y-siguientes-pasos)  
+7. [Extensiones Futuras](#extensiones-futuras)  
+8. [Historial de Cambios](#historial-de-cambios)  
+9. [🧭 Versión 0.3.0 (en preparación)](#-versión-030-en-preparación)
 
 ---
 
@@ -71,15 +67,15 @@ El archivo `src/app/app.py` es el punto de entrada de la aplicación. Entre sus 
 Para desarrollar y probar la aplicación de manera local, sigue estos pasos:
 
 - **Con Flask:**  
-  1. Active el entorno virtual (consulte la sección de instalación en el README.md).
-  2. Desde la carpeta `src/app`, ejecute:
+  1. Activa el entorno virtual (consulta la sección de instalación en el README.md).  
+  2. Desde la carpeta `src/app`, ejecuta:
      ```bash
      python app.py
      ```
-  3. Abra [http://127.0.0.1:5000](http://127.0.0.1:5000) en su navegador para ver la página de inicio.
+  3. Abre [http://127.0.0.1:5000](http://127.0.0.1:5000) en tu navegador para ver la página de inicio.
 
 - **Con HTML Estático:**  
-  Simplemente abra el archivo `index.html` en su navegador.
+  Simplemente abre el archivo `index.html` en tu navegador.
 
 ---
 
@@ -91,21 +87,24 @@ Para desarrollar y probar la aplicación de manera local, sigue estos pasos:
 - **excel_processor.py:**  
   Ubicado en la carpeta `scripts/`, este módulo gestiona la lectura, validación y transformación de archivos Excel en comandos SQL que se ejecutan en la base de datos.
 
+- **update_docs.bat / update_docs.sh:**  
+  Regeneran automáticamente el `CHANGELOG.md` y los índices de contenido (`TOC`) en los archivos Markdown.
+
 ---
 
 ## Buenas Prácticas y Siguientes Pasos
 
 - **Documentación Continua:**  
-  Comente el código y mantenga actualizada esta guía con cada cambio o adición significativa.
-  
+  Comenta el código y mantén actualizada esta guía con cada cambio significativo.
+
 - **Control de Versiones:**  
-  Utilice Git y siga un flujo de trabajo basado en ramas y revisiones de código.
+  Utiliza Git y sigue un flujo de trabajo basado en ramas y revisiones de código.
 
 - **Pruebas Unitarias:**  
-  Desarrolle y ejecute pruebas en módulos críticos para detectar errores tempranamente.
+  Desarrolla y ejecuta pruebas en módulos críticos para detectar errores tempranamente.
 
 - **Revisión de Código:**  
-  Realice revisiones periódicas con el equipo para asegurar el mantenimiento de altos estándares de calidad.
+  Realiza revisiones periódicas con el equipo para asegurar altos estándares de calidad.
 
 ---
 
@@ -127,19 +126,17 @@ Para desarrollar y probar la aplicación de manera local, sigue estos pasos:
 
 ## Historial de Cambios
 
-- **2025-06-22:**  
-  - Configuración inicial del entorno básico de Flask en `src/app/app.py`.
-  - Creación de la carpeta `templates` y del archivo `index.html`.
-  - Establecimiento de la estructura de carpetas y actualización de las instrucciones de instalación y ejecución en README.md.
-
-- **Futuro:**  
-  Cada cambio técnico o modificación importante se registrará en esta sección para mantener la trazabilidad.
+**2025-06-22**  
+- Configuración inicial del entorno básico de Flask en `src/app/app.py`.  
+- Creación de la carpeta `templates` y del archivo `index.html`.  
+- Establecimiento de la estructura de carpetas y actualización de las instrucciones de instalación y ejecución en README.md.
 
 ---
 
-Esta guía se encuentra en la carpeta `docs` y se actualizará de forma continua con cada evolución del sistema.
-```
+## 🧭 Versión 0.3.0 (en preparación)
 
----
-
-Cuando confirmes, pasaré ahora al contenido del archivo **CHANGELOG.md**.
+- [ ] Documentar endpoints REST del backend  
+- [ ] Añadir validación de variables de entorno  
+- [ ] Configurar `markdownlint` en CI  
+- [ ] Escribir pruebas unitarias básicas  
+- [ ] Definir esquema de despliegue (Heroku / Streamlit Cloud)

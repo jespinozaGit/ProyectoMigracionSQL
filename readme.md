@@ -268,3 +268,31 @@ Al seguir estos lineamientos, la documentación quedará completa y organizada, 
 ---
 
 Esta es la documentación real y final que utilizaremos para el proyecto. Ahora, cada vez que avancemos, tendremos claro qué actualizar y dónde registrar cada cambio. ¿Te parece que con esto se cubre lo necesario o requieres alguna modificación adicional?
+
+Te sugiero dos rutas, según cómo organices tu repo:
+
+1) Extender un Markdown existente  
+   • Si ya tienes un `README.md` que cubre instalación y uso, simplemente añade al final una sección llamada **“Despliegue en la nube”** con todos los pasos que vimos.  
+   • Ventaja: todo el contexto de tu proyecto en un único archivo.  
+   • Recomendación de estructura:  
+     ```md
+     ## Despliegue en la nube
+     1. Crear repo GitHub…
+     2. Configurar .gitignore…
+     3. Push y Streamlit Cloud…
+     ```
+
+2) Crear un nuevo archivo de despliegue  
+   • Si prefieres separar la documentación de desarrollo/arquitectura de la de despliegue, crea un `DEPLOY.md` o bien `docs/deployment.md`.  
+   • Ventaja: mantienes tu `README.md` limpio y dedicas un espacio exclusivo a todo el flujo de Git+Streamlit Cloud.  
+   • Puedes enlazarlo desde el `README.md` con:  
+     ```md
+     Para ver cómo desplegar en la nube, consulta [DEPLOY.md](DEPLOY.md).
+     ```
+
+Elige la opción que mejor encaje con tu estilo de docs:
+
+- ¿Quieres centralizar todo en un solo archivo? Modifica `README.md`.  
+- ¿Prefieres separar responsabilidades? Crea `DEPLOY.md` o un documento dentro de `docs/`.
+
+Mañana podemos retomar en el punto que elijas y ajustar estilo, añadir diagramas de flujo o hasta automatizar generación de docs via GH Actions.
