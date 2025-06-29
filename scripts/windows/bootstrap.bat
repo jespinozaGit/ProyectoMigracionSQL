@@ -5,7 +5,7 @@ echo.
 echo --------------------------------------------------
 echo 1) Creando / actualizando estructura de carpetas
 echo --------------------------------------------------
-call ..\scaffold.bat
+call scaffold.bat
 
 :: 2) Instalando librerías Python
 if exist requirements.txt (
