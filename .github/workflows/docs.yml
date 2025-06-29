@@ -1,3 +1,4 @@
+# .github/workflows/docs.yml
 name: CI Docs
 
 on:
@@ -13,28 +14,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install changelog tools
-      run: npm install -g conventional-changelog-cli markdown-toc
+      - name: Install changelog tools
+        run: npm install -g conventional-changelog-cli markdown-toc
 
-    - name: Ejecutar new update-docs.bat
-      shell: cmd
-      run: scripts\windows\update-docs.bat
+      - name: Ejecutar update-docs.bat
+        shell: cmd
+        run: scripts\windows\update-docs.bat
 
-    - name: Auto-commit docs
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: chore: autopush docs update
-        file_pattern: |
-          CHANGELOG.md
-          README.md
-          docs/**
+      - name: Auto-commit docs
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: chore: autopush docs update
+          file_pattern: |
+            CHANGELOG.md
+            README.md
+            docs/**
