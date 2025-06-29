@@ -1,4 +1,3 @@
-# .github/workflows/docs.yml
 name: CI Docs
 
 on:
@@ -35,7 +34,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: chore: autopush docs update
-          file_pattern: |
-            CHANGELOG.md
-            README.md
-            docs/**
