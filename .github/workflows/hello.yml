@@ -1,0 +1,7 @@
+name: Hello World
+on: [push]
+jobs:
+  say-hi:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Actions está funcionando 👍"
