@@ -1,3 +1,12 @@
+#  (2025-06-29)
+
+
+### Reverts
+
+* Revert "chore: limpiar y reordenar scripts, actualizar docs" ([5b9b0ab](https://github.com/jespinozaGit/ProyectoMigracionSQL/commit/5b9b0abc8f8be1d16ca14c6b8422c233eb0fb3a9))
+
+
+
 # [](https://github.com/jespinozaGit/ProyectoMigracionSQL/compare/v0.2.0...v) (2025-06-29)
 
 
