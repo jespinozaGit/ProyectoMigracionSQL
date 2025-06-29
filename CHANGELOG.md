@@ -1,3 +1,13 @@
+# [](https://github.com/jespinozaGit/ProyectoMigracionSQL/compare/v0.2.0...v) (2025-06-29)
+
+
+### Bug Fixes
+
+* **docs:** flatten markdownlint config to disable MD013, MD031, MD012 & MD040 ([e36a5cc](https://github.com/jespinozaGit/ProyectoMigracionSQL/commit/e36a5cc5dfb8a92a6cb1d8da088b1e1f984fbfa2))
+* valid JSON in markdownlint config ([202f18a](https://github.com/jespinozaGit/ProyectoMigracionSQL/commit/202f18a91c4f91fb220fa4c05f5e7827891894f2))
+
+
+
 #  (2025-06-29)
 
 
