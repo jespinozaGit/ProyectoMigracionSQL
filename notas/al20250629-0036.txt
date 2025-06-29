@@ -1,0 +1,58 @@
+Aquí tienes el árbol final de tu proyecto tras los últimos cambios:
+
+```plaintext
+ProyectoMigracionSQL/
+├── CHANGELOG.md
+├── Dockerfile
+├── docker-compose.yml
+├── README.md
+├── requirements.txt
+├── setup.bat
+├── docs/
+│   └── guia_desarrollo.md
+├── notebooks/
+├── scripts/
+│   ├── archivados/
+│   │   ├── crear_estructura.bat
+│   │   └── scaffold.bat
+│   └── windows/
+│       ├── bootstrap.bat
+│       ├── start-app.bat
+│       ├── start-system.bat
+│       └── update_docs.bat
+├── src/
+│   ├── app/
+│   ├── config/
+│   ├── utils/
+│   └── servicios/
+└── notas/
+    ├── al20250627-2244.txt
+    ├── aquiQuedamos_20250628-1206.txt
+    ├── aquiQuedamos_20250628-1219.txt
+    ├── aquiQuedamos_20250628-2309.txt
+    ├── loQueSeVaHaciendo.txt
+    ├── paraContinua.txt
+    └── readme.txt
+```
+
+1. `notas/` agrupa todas tus notas de trabajo.  
+2. `scripts/archivados/` contiene versiones históricas.  
+3. `scripts/windows/` alberga los `.bat` activos.  
+4. Solo quedan en la raíz los archivos esenciales del proyecto y `requirements.txt`.  
+
+Para confirmar que todo está limpio y sincronizado, ejecuta:
+
+```bash
+git status
+```
+
+Debería responder:
+
+```
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+¡Listo! Tu repositorio está perfectamente ordenado y reflejado en GitHub. 🚀
