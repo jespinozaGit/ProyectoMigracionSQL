@@ -1,3 +1,4 @@
+# .github/workflows/docs.yml
 name: CI Docs
 
 on:
@@ -33,4 +34,4 @@ jobs:
       - name: Auto-commit docs
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: autopush docs update"
+          commit_message: 'chore: autopush docs update'
