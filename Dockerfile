@@ -1,17 +1,13 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-# Crear directorio de la app
 WORKDIR /app
 
-# Copiar requirements y los instala
 COPY requirements.txt ./
+
+RUN apt-get update && apt-get install -y unixodbc
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el resto del código
-COPY . .
+COPY ./src/app ./src/app
 
-# Puerto en el que corre Flask
-EXPOSE 8000
-
-# Comando por defecto
-CMD ["python", "app.py"]
+CMD ["python", "./src/app/app.py"]
