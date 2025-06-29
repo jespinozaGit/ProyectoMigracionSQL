@@ -36,8 +36,7 @@ jobs:
                         markdown-toc
 
       - name: Lint Markdown
-        run: |
-          markdownlint "**/*.md" --config .markdownlint.json
+        run: markdownlint "**/*.md" --config .markdownlint.json
 
       - name: Generate CHANGELOG & TOC
         run: |
