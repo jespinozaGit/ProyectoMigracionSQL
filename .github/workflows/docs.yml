@@ -1,16 +1,17 @@
-# .github/workflows/docs.yml
 name: docs
-
-permissions:
-  contents: write
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths: 
+      - '**/*.md'
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
+    paths:
+      - '**/*.md'
+
+permissions:
+  contents: write
 
 jobs:
   update-docs:
@@ -20,7 +21,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: true
 
       - name: Setup Node.js
@@ -30,18 +30,16 @@ jobs:
 
       - name: Install CLI tools
         run: |
-          npm install -g markdownlint-cli \
-                        conventional-changelog-cli \
-                        markdown-toc
+          npm install -g markdownlint-cli conventional-changelog-cli markdown-toc
 
       - name: Lint Markdown
-        run: markdownlint "**/*.md" --config .markdownlint.json
+        run: markdownlint "**/*.md" --config .markdownlint.json \
+               --ignore-pattern .markdownlintignore
 
       - name: Generate CHANGELOG & TOC
-        shell: cmd
         run: |
           conventional-changelog -p angular -i CHANGELOG.md -s
-          call update_docs.bat
+          bash .github/scripts/update_docs.sh
 
       - name: Commit & push updates
         run: |
