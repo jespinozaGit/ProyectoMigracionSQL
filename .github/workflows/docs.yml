@@ -1,17 +1,18 @@
+# .github/workflows/docs.yml
 name: docs
+
+permissions:
+  contents: write
 
 on:
   push:
     branches: [ main ]
-    paths: 
+    paths:
       - '**/*.md'
   pull_request:
     branches: [ main ]
     paths:
       - '**/*.md'
-
-permissions:
-  contents: write
 
 jobs:
   update-docs:
@@ -30,15 +31,19 @@ jobs:
 
       - name: Install CLI tools
         run: |
-          npm install -g markdownlint-cli conventional-changelog-cli markdown-toc
+          npm install -g markdownlint-cli \
+                        conventional-changelog-cli \
+                        markdown-toc
 
       - name: Lint Markdown
-        run: markdownlint "**/*.md" --config .markdownlint.json \
-               --ignore-pattern .markdownlintignore
+        run: |
+          markdownlint "**/*.md" --config .markdownlint.json
 
       - name: Generate CHANGELOG & TOC
         run: |
+          echo "1) Actualizando CHANGELOG.md..."
           conventional-changelog -p angular -i CHANGELOG.md -s
+          echo "2) Regenerando TOC en README.md y docs/guia_desarrollo.md..."
           bash .github/scripts/update_docs.sh
 
       - name: Commit & push updates
