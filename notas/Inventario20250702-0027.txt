@@ -1,0 +1,76 @@
+# 1. Inventario actual del proyecto
+
+Para avanzar sin incógnitas, primero necesitamos un mapa de todo lo que ya tienes. Por favor, en tu PowerShell (en la raíz `ProyectoMigracionSQL`) ejecuta:
+
+```powershell
+# Listado recursivo de archivos y carpetas
+tree /F /A > project-structure.txt
+```
+
+Luego ábrelo (`notepad project-structure.txt`) y comparte aquí:
+
+- Estructura de carpetas (src/, logs/, Backups/, etc.)  
+- Archivos clave (`app.py`, `docker-compose.yml`, scripts `.ps1` o `.bat`, seeds SQL, `.env`)
+
+---
+
+# 2. Documentación de estado actual
+
+Mientras recolectamos la estructura, crea un **README.md** provisional donde apuntes:
+
+- Servicios Docker activos (web, db, init-db)  
+- Endpoints implementados y su estado (GET /compras → pendiente de corregir)  
+- Scripts de backup y ubicación de logs/backups  
+- Variables de entorno críticas (`SA_PASSWORD`, `DATABASE_URL`, puertos)
+
+Ejemplo de sección en tu README.md:
+
+```markdown
+## Estado actual
+
+- Docker Compose: `web`, `db`, `init-db`
+- Endpoint GET /compras: definición en `src/app/app.py`, arroja 404 + SyntaxError
+- Backups: `backup-project.ps1`, `backup-db.ps1` en carpeta raíz
+- Logs: `logs/` contiene archivos `.log` de la app web
+```
+
+---
+
+# 3. Plan de acción para la próxima sesión
+
+Una vez tengamos clara la estructura:
+
+1. **Corregir el SyntaxError** en `app.py`  
+   - Revisar línea problemática y eliminar caracteres invisibles.  
+   - Asegurar indentación uniforme (4 espacios).
+
+2. **Verificar montaje de volumen** en `docker-compose.yml`  
+   - Que `./src/app:/app/src/app` esté bien indentado.
+
+3. **Probar** localmente con `curl` o Postman y documentar salida exitosa.
+
+4. **Implementar** el endpoint **POST /compras**:  
+   - Añadir ruta, validación de payload JSON, INSERT SQL y devolver el nuevo registro.
+
+5. **Refinar** la documentación:  
+   - Diagrama de flujo (endpoints → DB)  
+   - Instrucciones de arranque limpio:  
+     ```bash
+     git clone …
+     docker compose up --build -d
+     curl http://localhost:8000/compras
+     ```
+
+---
+
+# 4. Tareas previas
+
+- Comparte el contenido de `project-structure.txt`.  
+- Sube el README.md provisional con los puntos 1–2 completados.  
+- Indica si usas espacios o tabs en `app.py`.
+
+Con esa información, partimos de un terreno firme y retomamos la corrección del API sin pasos ciegos. 
+
+---
+
+*Bonus*: considera usar [Postman Collections](https://www.postman.com/) o [Insomnia](https://insomnia.rest/) para capturar ejemplos de request/responses y versionarlos junto al código.
