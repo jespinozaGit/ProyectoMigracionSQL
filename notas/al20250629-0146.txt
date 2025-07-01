@@ -1,0 +1,36 @@
+Yo iría por Streamlit Cloud para la fase inmediata y, a la vez, planear un paso intermedio en Azure. Así tienes:
+
+  1. Un link fijo al que tú y tu equipo acceden YA sin VPN ni firewalls.  
+  2. Un pipeline de despliegue desde GitHub de la app de consultas.  
+  3. Gestión de secretos (cadena de conexión) integrada y cifrada.  
+
+Y al mismo tiempo vas trazando el plan completo de migración:
+
+— Fase 0 (hoy): Probar con Streamlit Cloud  
+  • Subes tu `consultas.py` y `requirements.txt` a GitHub.  
+  • En share.streamlit.io creas la app, configuras el secreto `DATABASE_URL` apuntando a tu SQL Server (o a un túnel ngrok estable si aún no expones la base).  
+  • Obtienes un enlace tipo `https://proyectomigracion.streamlit.app` que no cambia.  
+
+— Fase 1: Centralizar datos en la nube  
+  • Migra tu base local de SQL Server Express a un Azure SQL Managed Instance o Azure SQL Database.  
+  • Actualiza `DATABASE_URL` en tu Streamlit Cloud apuntando ya a Azure SQL; así evitas todo túnel y tu DB es “nube” por defecto.  
+
+— Fase 2: Enriquecer la app y ampliar el sistema  
+  • A partir de esa misma app de Streamlit añades más módulos (auditoría, reportes, métricas).  
+  • Control de versiones, tests automáticos y despliegue continuo via GitHub Actions.  
+
+— Fase 3: Conectar Excel al nuevo back-end  
+  • Sustituir los ODBC directos a local por data sources a tu Azure SQL.  
+  • Configurar Power Query en Excel para refresco directo contra la DB en la nube.  
+
+— Fase 4: Decommission  
+  • Cuando todos los usuarios ya tiren de la app web y de los informes en Azure, dejas de actualizar los .xlsx locales.  
+  • Cierras accesos directos al SQL Server on-premise, apagas Express y sellas el proceso.
+
+Por qué Streamlit Cloud primero  
+- Dominio estable desde el minuto 1.  
+- Cero infraestructura que montar ni pagar.  
+- Integración nativa con GitHub y gestión de secretos.  
+- Te da tiempo de validar la UI y el flujo de consultas antes de migrar la DB.  
+
+A medio plazo, tras validar, mueves solo la base a Azure y continúas usando esa misma app. Con eso consigues un sistema moderno, colaborativo y con un plan de migración escalonado.

@@ -1,0 +1,42 @@
+Para que no pierdas el hilo y al arrancar mañana (o la próxima semana) retomes justo donde estás, te sugiero este mini-workflow de “checkpoint”:
+
+1. Versiona tu código y la infraestructura en GitHub  
+   • Asegúrate de tener todo en tu repo `ProyectoMigracionSQL` (src/app/consultas.py, scripts de ngrok o Dockerfile si los usas).  
+   • Crea un archivo DEPLOYMENT.md donde registres:
+     - La URL y nombre de tu app en Streamlit Cloud.
+     - El nombre exacto de tu secreto (`DATABASE_URL`) y formato de la cadena.
+     - Si usas ngrok, la instrucción `ngrok tcp 1433` y dónde encontrar el endpoint.
+     - Parámetros de conexión (servidor, base, credenciales SQL).
+   • Haz commit + push de ese DEPLOYMENT.md.
+
+2. Documenta tu entorno local  
+   • Crea un `.env.example` o un fragmento de `.streamlit/secrets.toml` con placeholders:
+     ```toml
+     # .streamlit/secrets.toml
+     DATABASE_URL = "mssql+pyodbc://<USER>:<PASS>@<HOST>:<PORT>/<BD>?driver=ODBC+Driver+17+for+SQL+Server"
+     ```  
+   • Esto te servirá de plantilla cuando vuelvas a montar local o en otro PC.
+
+3. Guarda tus credenciales de túnel (si usar ngrok)  
+   • En tu home, crea un archivo `ngrok-config.yml` con tu authtoken.  
+   • Documenta el comando exacto para levantarlo:
+     ```bash
+     ngrok authtoken <TU_TOKEN>
+     ngrok tcp 1433 --region us
+     ```
+
+4. Anota los pasos clave en tu gestor de tareas  
+   Sea Trello, Notion o un simple issue de GitHub:
+   - [ ] Actualizar secreto DATABASE_URL en Streamlit Cloud
+   - [ ] Ejecutar ngrok antes de levantar la app
+   - [ ] Verificar consultas “Stock por producto” y demás
+
+5. Cómo arrancar la próxima vez  
+   Cuando vuelvas:
+   1. Clona tu repo y `cd ProyectoMigracionSQL`.  
+   2. Si trabajas local, crea tu `.streamlit/secrets.toml` con las credenciales.  
+   3. Si usas túnel, lanza tu `ngrok tcp 1433`.  
+   4. Entra a Streamlit Cloud → My apps → Settings → Secrets (confirma que DATABASE_URL sigue ahí).  
+   5. Overview → 🔄 Rerun → Visit app.  
+
+Con ese checklist en GitHub y tu DEPLOYMENT.md, bastará con echar un ojo al README/issue para volver a poner todo en marcha. Así nunca perderás dónde habías quedado ni tendrás que reaprender la configuración.
